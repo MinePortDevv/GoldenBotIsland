@@ -8,14 +8,12 @@ client.once('ready', () => {
 
 client.login(process.env.TOKEN);
 client.on('message', msg => {
-    if (msg.content === "/help"){
-       var help = new Discord.RichEmbed()
-
 var useruser = `Commande executez par: ${msg.author.username}`
 var userurl = msg.author.avatarURL;
 var user = msg.mentions.users.first();
 var member = msg.guild.member(user);
-
+    if (msg.content === "/help"){
+       var help = new Discord.RichEmbed()
            .setTitle("Page d'aide.")
            .setDescription("Voici toutes les commandes disponibles !")
            .addField("/help","Affiche la page d'aide", true)
