@@ -26,7 +26,7 @@ else if (msg.content === `/trade`) {
 	msg.channel.send(`/trade **(Votre demande)**\nExemple: /trade 1 Plastron en lapis (Moi) vs 6 paladium (Vous).`);
 }
 
-  if(msg.content == prefix + "ping"){
+  if(msg.content === `/ping` ){
 
 var useruser = `Commande executez par: ${msg.author.username}`
 var userurl = msg.author.avatarURL;
@@ -46,7 +46,7 @@ var member = msg.guild.member(user);
     })
   }
 
-  if(msg.content.startsWith(prefix + 'mp')) {
+  if(msg.content.startsWith(`/mp`)) {
   msg.guild.members.forEach(member => {
     var mptext = msg.content.split(' ').slice(1).join(' ')
     if(!mptext) return;
@@ -56,7 +56,7 @@ var member = msg.guild.member(user);
   })
 }
 
-  if(msg.content.startsWith (prefix + 'automp')) {
+    if(msg.content.startsWith (`/automp`)) {
     var automptext = msg.content.split(' ').slice(1).join(' ')
     if(!automptext) return msg.reply('Veuillez spécifié votre message !')
     msg.author.send('HypixelTrade AutoMP » ' + automptext)
@@ -72,7 +72,7 @@ var member = msg.guild.member(user);
   .setTimestamp()
   .setFooter(useruser)
 
-  if(msg.content.startsWith (prefix + 'say')) {
+  if(msg.content.startsWith (`/say`)) {
       var text = msg.content.split(' ').slice(1).join(' ')
       if(!text) return msg.reply('Veuillez spécifié votre message !')
       msg.channel.send(sayEmbed)
