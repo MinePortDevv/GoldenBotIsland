@@ -19,7 +19,7 @@ client.on('message', msg => {
            .addField("/say", "Faire dire une chose au bot", true)
            .addField("/automp", "Le bot vous envoie un mp", true)
            .setColor("RANDOM")
-           .setFooter(`Request by ${msg.author.username}${msg.author.discriminator}`)
+           .setFooter(useruser, userurl)
        msg.channel.sendEmbed(help);
    }
 else if (msg.content === `/trade`) {
@@ -70,7 +70,7 @@ var member = msg.guild.member(user);
   .setTitle('Say:')
   .setDescription(saytext)
   .setTimestamp()
-  .setFooter(useruser)
+  .setFooter(useruser, userurl)
 
   if(msg.content.startsWith (`/say`)) {
       var text = msg.content.split(' ').slice(1).join(' ')
