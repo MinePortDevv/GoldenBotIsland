@@ -3,7 +3,7 @@ const client = new Discord.Client();
 const prefix = '/';
 
 client.once('ready', () => {
-        client.user.setGame("Trade! /help");
+        client.user.setGame("Hypixel Trade! /help");
 });
 
 client.login(process.env.TOKEN);
@@ -13,8 +13,11 @@ client.on('message', msg => {
            .setTitle("Page d'aide.")
            .setDescription("Voici toutes les commandes disponibles !")
            .addField("/help","Affiche la page d'aide", true)
-           .addField("/ping","Pong ! :wink:", true)
+           .addField("/ping","Affiche la latence du bot", true)
            .addField("/trade", "Requête de trade", true)
+           .addField("/mp", "MpAll tout le serveur", true)
+           .addField("/say", "Faire dire une chose au bot.", true)
+           .addField("/automp", "Le bot vous envoie un mp
            .setColor("RANDOM")
            .setFooter(`Request by ${msg.author.username}${msg.author.discriminator}`)
        msg.channel.sendEmbed(help);
@@ -56,7 +59,7 @@ var member = msg.guild.member(user);
   if(msg.content.startsWith (prefix + 'automp')) {
     var automptext = msg.content.split(' ').slice(1).join(' ')
     if(!automptext) return msg.reply('Veuillez spécifié votre message !')
-    msg.author.send('Kryptonium AutoMP > ' + automptext)
+    msg.author.send('HypixelTrade AutoMP » ' + automptext)
     msg.delete()
   }
 
