@@ -16,8 +16,8 @@ client.on('message', msg => {
            .addField("/ping","Affiche la latence du bot", true)
            .addField("/trade", "Requête de trade", true)
            .addField("/mp", "MpAll tout le serveur", true)
-           .addField("/say", "Faire dire une chose au bot.", true)
-           .addField("/automp", "Le bot vous envoie un mp
+           .addField("/say", "Faire dire une chose au bot", true)
+           .addField("/automp", "Le bot vous envoie un mp", true)
            .setColor("RANDOM")
            .setFooter(`Request by ${msg.author.username}${msg.author.discriminator}`)
        msg.channel.sendEmbed(help);
