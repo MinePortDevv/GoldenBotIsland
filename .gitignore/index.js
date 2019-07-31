@@ -7,11 +7,8 @@ client.once('ready', () => {
 });
 
 client.login(process.env.TOKEN);
-client.on('message', message => {
-	if (message.content === '/ping') {
-		message.channel.send('Pong !');
-}
-    if (message.content === "/help"){
+client.on('message', msg => {
+    if (msg.content === "/help"){
        var help = new Discord.RichEmbed()
            .setTitle("Page d'aide.")
            .setDescription("Voici toutes les commandes disponibles !")
@@ -19,11 +16,65 @@ client.on('message', message => {
            .addField("/ping","Pong ! :wink:", true)
            .addField("/trade", "Requête de trade", true)
            .setColor("RANDOM")
-           .setFooter(`Request by ${message.author.username}${message.author.discriminator}`)
-       message.channel.sendEmbed(help);
+           .setFooter(`Request by ${msg.author.username}${msg.author.discriminator}`)
+       msg.channel.sendEmbed(help);
    }
-else if (message.content === `/trade`) {
-	message.channel.send(`/trade **(Votre demande)**\nExemple: /trade 1 Plastron en lapis (Moi) vs 6 paladium (Vous).`);
+else if (msg.content === `/trade`) {
+	msg.channel.send(`/trade **(Votre demande)**\nExemple: /trade 1 Plastron en lapis (Moi) vs 6 paladium (Vous).`);
 }
+
+  if(msg.content == prefix + "ping"){
+
+var useruser = `Commande executez par: ${msg.author.username}`
+var userurl = msg.author.avatarURL;
+var user = msg.mentions.users.first();
+var member = msg.guild.member(user);
+
+    let pingEmbed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setDescription(`Chargement...`)
+        .setTimestamp()
+    msg.channel.send(pingEmbed).then(msg =>{
+        pingEmbed.setColor("RANDOM")
+        pingEmbed.setDescription(`:ping_pong: Pong ! **\`${client.pings[0]}ms\`** :ping_pong:`)
+        pingEmbed.setFooter(useruser, userurl)
+        pingEmbed.setTimestamp()
+        msg.edit(pingEmbed) 
+    })
+  }
+
+  if(msg.content.startsWith(prefix + 'mp')) {
+  msg.guild.members.forEach(member => {
+    var mptext = msg.content.split(' ').slice(1).join(' ')
+    if(!mptext) return;
+    var perm = msg.member.hasPermission("ADMINISTRATOR")
+    if(!perm) return;
+  member.send(mptext)
+  })
+}
+
+  if(msg.content.startsWith (prefix + 'automp')) {
+    var automptext = msg.content.split(' ').slice(1).join(' ')
+    if(!automptext) return msg.reply('Veuillez spécifié votre message !')
+    msg.author.send('Kryptonium AutoMP > ' + automptext)
+    msg.delete()
+  }
+
+  var saytext = msg.content.split(' ').slice(1).join(' ')
+  var useruser = `${msg.author.username}`
+  const sayEmbed = new Discord.RichEmbed()
+  .setColor('0x585858')
+  .setTitle('Say:')
+  .setDescription(saytext)
+  .setTimestamp()
+  .setFooter(useruser)
+
+  if(msg.content.startsWith (prefix + 'say')) {
+      var text = msg.content.split(' ').slice(1).join(' ')
+      if(!text) return msg.reply('Veuillez spécifié votre message !')
+      msg.channel.send(sayEmbed)
+      msg.delete()  
+  }
+
 
 });
