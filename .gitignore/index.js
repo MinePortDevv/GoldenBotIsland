@@ -18,7 +18,7 @@ client.on('message', message => {
            .setDescription("Voici toutes les commandes disponibles !")
            .addField("/help","Affiche la page d'aide", true)
            .addField("/ping","Pong ! :wink:", true)
-           .addField("/trade", "Requête de trade"
+           .addField("/trade", "Requête de trade", true)
            .setColor("RANDOM")
            .setFooter("Request by ${message.author.username}${message.author.discriminator}")
        message.channel.sendEmbed(help);
