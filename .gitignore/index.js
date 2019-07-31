@@ -64,7 +64,7 @@ var member = msg.guild.member(user);
     if(msg.content.startsWith (`/automp`)) {
     var automptext = msg.content.split(' ').slice(1).join(' ')
     if(!automptext) return msg.reply('Veuillez spécifié votre message !')
-    msg.author.send('HypixelTrade AutoMP » ' + automptext)
+    msg.author.send('Hypixel Trade AutoMP » ' + automptext)
     msg.delete()
   }
 
