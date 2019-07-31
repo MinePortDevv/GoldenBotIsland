@@ -3,14 +3,13 @@ const client = new Discord.Client();
 const prefix = '/';
 
 client.once('ready', () => {
-	console.log('\nNom du bot : GoldBot\nCréateur : Adam7680\nServeur : Golden Island\nBot actif : 1');
         client.user.setGame("Trade! /help");
 });
 
 client.login(process.env.TOKEN);
 client.on('message', message => {
 	if (message.content === '/ping') {
-		message.channel.send('Pong ! ');
+		message.channel.send('Pong !');
 }
     if (message.content === "/help"){
        var help = new Discord.RichEmbed()
@@ -20,11 +19,11 @@ client.on('message', message => {
            .addField("/ping","Pong ! :wink:", true)
            .addField("/trade", "Requête de trade", true)
            .setColor("RANDOM")
-           .setFooter("Request by ${message.author.username}${message.author.discriminator}")
+           .setFooter(`Request by ${message.author.username}${message.author.discriminator}`)
        message.channel.sendEmbed(help);
    }
 else if (message.content === `/trade`) {
-	message.channel.send(`/trade **(Votre demande)**\nExemple: /trade 1 Plastron en lapis (Moi) vs 6 paladium.`);
+	message.channel.send(`/trade **(Votre demande)**\nExemple: /trade 1 Plastron en lapis (Moi) vs 6 paladium (Vous).`);
 }
 
 });
