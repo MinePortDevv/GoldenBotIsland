@@ -18,12 +18,11 @@ client.on('message', message => {
            .setDescription("Voici toutes les commandes disponibles !")
            .addField("/help","Affiche la page d'aide", true)
            .addField("/ping","Pong ! :wink:", true)
-           .addField("/trade", "Trade 
+           .addField("/trade", "Requête de trade"
            .setColor("RANDOM")
            .setFooter("Request by ${message.author.username}${message.author.discriminator}")
        message.channel.sendEmbed(help);
    }
-}
 else if (message.content === `/trade`) {
 	message.channel.send(`/trade **(Votre demande)**\nExemple: /trade 1 Plastron en lapis (Moi) vs 6 paladium.`);
 }
