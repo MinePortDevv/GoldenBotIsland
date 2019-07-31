@@ -10,6 +10,12 @@ client.login(process.env.TOKEN);
 client.on('message', msg => {
     if (msg.content === "/help"){
        var help = new Discord.RichEmbed()
+
+var useruser = `Commande executez par: ${msg.author.username}`
+var userurl = msg.author.avatarURL;
+var user = msg.mentions.users.first();
+var member = msg.guild.member(user);
+
            .setTitle("Page d'aide.")
            .setDescription("Voici toutes les commandes disponibles !")
            .addField("/help","Affiche la page d'aide", true)
@@ -20,6 +26,7 @@ client.on('message', msg => {
            .addField("/automp", "Le bot vous envoie un mp", true)
            .setColor("RANDOM")
            .setFooter(useruser, userurl)
+           .setTimestamp()
        msg.channel.sendEmbed(help);
    }
 else if (msg.content === `/trade`) {
