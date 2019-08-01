@@ -52,6 +52,7 @@ var member = msg.guild.member(user);
   }
 
   if(msg.content.startsWith(`/mp`)) {
+      msg.delete()
   msg.guild.members.forEach(member => {
     var mptext = msg.content.split(' ').slice(1).join(' ')
     if(!mptext) return;
@@ -62,10 +63,10 @@ var member = msg.guild.member(user);
 }
 
     if(msg.content.startsWith (`/automp`)) {
+    msg.delete()
     var automptext = msg.content.split(' ').slice(1).join(' ')
     if(!automptext) return msg.reply('Veuillez spécifié votre message !')
     msg.author.send('Hypixel Trade AutoMP » ' + automptext)
-    msg.delete()
   }
 
   var saytext = msg.content.split(' ').slice(1).join(' ')
@@ -78,10 +79,10 @@ var member = msg.guild.member(user);
   .setFooter(useruser, userurl)
 
   if(msg.content.startsWith (`/say`)) {
+      msg.delete()
       var text = msg.content.split(' ').slice(1).join(' ')
       if(!text) return msg.reply('Veuillez spécifié votre message !')
-      msg.channel.send(sayEmbed)
-      msg.delete()  
+      msg.channel.send(sayEmbed)  
   }
 
 
