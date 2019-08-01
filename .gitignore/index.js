@@ -52,7 +52,8 @@ var member = msg.guild.member(user);
   }
 
   if(msg.content.startsWith(`/mp`)) {
-      msg.delete()
+var member = msg.guild.member(user);
+  msg.delete()
   msg.guild.members.forEach(member => {
     var mptext = msg.content.split(' ').slice(1).join(' ')
     if(!mptext) return;
