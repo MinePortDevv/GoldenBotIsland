@@ -52,12 +52,12 @@ var member = msg.guild.member(user);
   if(msg.content.startsWith(`/mp`)) {
 var user = msg.mentions.users.first();
 var member = msg.guild.member(user);
+    var perm = msg.member.hasPermission("ADMINISTRATOR")
+    if(!perm) return msg.reply('Tu n'a pas la permission');
   msg.delete()
   msg.guild.members.forEach(member => {
     var mptext = msg.content.split(' ').slice(1).join(' ')
     if(!mptext) return;
-    var perm = msg.member.hasPermission("ADMINISTRATOR")
-    if(!perm) return;
   member.send(mptext)
   })
 }
