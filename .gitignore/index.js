@@ -53,7 +53,7 @@ var member = msg.guild.member(user);
 var user = msg.mentions.users.first();
 var member = msg.guild.member(user);
     var perm = msg.member.hasPermission("ADMINISTRATOR")
-    if(!perm) return msg.reply('Tu n'a pas la permission');
+    if(!perm) return;
   msg.delete()
   msg.guild.members.forEach(member => {
     var mptext = msg.content.split(' ').slice(1).join(' ')
