@@ -10,8 +10,6 @@ client.login(process.env.TOKEN);
 client.on('message', msg => {
 var useruser = `Commande executez par: ${msg.author.username}`
 var userurl = msg.author.avatarURL;
-var user = msg.mentions.users.first();
-var member = msg.guild.member(user);
     if (msg.content === "/help"){
        var help = new Discord.RichEmbed()
            .setTitle("Page d'aide.")
@@ -52,6 +50,7 @@ var member = msg.guild.member(user);
   }
 
   if(msg.content.startsWith(`/mp`)) {
+var user = msg.mentions.users.first();
 var member = msg.guild.member(user);
   msg.delete()
   msg.guild.members.forEach(member => {
